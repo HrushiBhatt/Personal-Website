@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Personal image assets — not needed in source control
+public/images/
+Pics Personal Website/
+
+# Sensitive / generated
+*.local
+package-lock.json
