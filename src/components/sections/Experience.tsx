@@ -36,7 +36,7 @@ export function Experience() {
                   <div className="absolute -left-[41px] top-2 w-2.5 h-2.5 rounded-full border border-[#3b82f6]/50 bg-[#0A0A0A] group-hover:border-[#3b82f6] group-hover:bg-[#3b82f6]/20 transition-all hidden md:block" />
 
                   <div className="rounded-xl border border-[#2a2a2a] bg-[#141414] p-6 hover:border-[#3b82f6]/25 transition-all duration-300">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                       <div>
                         <h3 className="text-base font-semibold text-[#F0F0F0]">{item.title}</h3>
                         <p className="text-sm text-[#3b82f6] font-medium mt-0.5">{item.company}</p>
