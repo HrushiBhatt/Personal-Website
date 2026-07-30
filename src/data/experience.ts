@@ -8,37 +8,36 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    title: 'Technical Product Manager Intern',
+    title: 'Software Engineer Intern',
     company: 'Motorola Mobility LLC',
     location: 'Chicago, IL',
     period: 'May 2026 – Present',
     bullets: [
-      'Developed a Mobile Device UI Dashboard using Python scripting, JavaScript, and Codex (GPT-5.5) deployed via AWS.',
-      'Centralized all U.S. carrier-specific monetization services across Motorola devices into one auto-updating web page.',
-      'Optimized RAZR upgrades by authoring PRDs, roadmaps, and market analysis, prioritizing 4 distinct software updates.',
-      'Collaborated with AI engineers to test and integrate Qira\'s native agentic AI into RAZR, releasing it to 13.5 million users.',
+      'Engineered a web app using React and Flask that lets 100+ Motorola staff preview on-device monetization for all products',
+      'Designed a PostgreSQL schema and OAuth login flow that authenticates and tracks internal users across the Flask REST API',
+      'Automated a cron-driven Python/Scraper API pipeline that surfaces product reviews from global sources into BigQuery',
+      'Containerized backend services with Docker and shipped to GCP Cloud Run via gcloud CLI for a single internal endpoint',
+      'Synced with SWE and PM teams in weekly Agile sprints, tracking work in Jira and managing code reviews through Git',
     ],
   },
   {
-    title: 'Technical Product Manager Intern',
+    title: 'Technical Product Management Intern',
     company: 'Motorola Mobility LLC',
     location: 'Chicago, IL',
-    period: 'Jun 2025 – Jul 2025',
+    period: 'June 2025 – July 2025',
     bullets: [
-      'Improved Moto Migrate backend via Java (Spring Boot) to resolve app, photo, and contact duplication during data migration.',
-      'Benchmarked Moto AI against Google Gemini and Galaxy AI, turning research data into 3+ deployable software upgrades.',
-      'Partnered with camera software and strategy teams to conduct third-party application compatibility testing for 2026 devices.',
-      'Developed a business case for a first-party agentic AI assistant unifying the Motorola and Lenovo device ecosystem (Qira).',
+      'Patched data migration issues and optimized UI/UX screens for Moto Migrate app, using React.js, Figma and OpenAI improving onboarding setup and data transfer experience for 4.5M+ users switching from iOS to Motorola devices', 
+      'Developed a business case for a native agentic AI model unifying the Motorola/Lenovo ecosystem for 34M+ customers, earning executive approval by quantifying a $10M+ revenue opportunity and 12%+ engagement lift across product lines',
     ],
   },
   {
-    title: 'Solution Center Technical Assistant',
+    title: 'Information Technology Support Specialist',
     company: 'Iowa State University',
     location: 'Ames, IA',
-    period: 'Jan 2025 – May 2026',
+    period: 'January 2025 – May 2026',
     bullets: [
-      'Resolved 100+ weekly hardware/software issues using diagnostic utilities and log analysis, reducing repeat incidents by 60%.',
-      'Restored network outages, driver conflicts, and OS corruption using Cisco DNA software and Entra, improving MTTR.',
+      'Automated recurring fixes for common device and access failures with PowerShell scripts, reducing repeat incidents 50%',
+      'Debugged issues across the stack, network (Cisco DNA), identity/auth (Entra), and OS level, resolving 500+ weekly tickets',
     ],
   },
 ];
