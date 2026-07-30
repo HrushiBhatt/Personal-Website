@@ -16,7 +16,7 @@ export const leadership: LeadershipItem[] = [
     ],
   },
   {
-    title: 'Electrical Team Member',
+    title: 'Electrical Systems Engineer',
     org: 'Formula SAE — Iowa State',
     period: 'Aug 2023 – May 2024',
     bullets: [

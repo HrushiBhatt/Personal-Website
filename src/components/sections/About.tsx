@@ -62,19 +62,10 @@ export function About() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <p className="text-[#888] leading-relaxed mb-5 text-sm">
-              Currently I'm at Motorola Mobility LLC in Chicago as a Technical Product Manager Intern,
-              driving AI integration and carrier-specific monetization software for the RAZR lineup. Shipping updates
-              that reach millions users.
-            </p>
-          </ScrollReveal>
-
           <ScrollReveal delay={0.15}>
             <p className="text-[#888] leading-relaxed text-sm">
-              Outside of work, I lead Iowa State's Ultimate Frisbee Club as VP &amp;
-              Captain, member of the Computer Science & Software Engineering club, and a part
-              of the Institute of Electrical & Electronics Engineers community. 
+              Outside of work, I lead Iowa State's Ultimate Frisbee Club as Vice President &amp;
+              Captain, enjoy playing golf (10 handicap), play video games, watch movies, and like to build projects!
             </p>
           </ScrollReveal>
         </div>

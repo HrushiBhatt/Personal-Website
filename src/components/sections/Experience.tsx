@@ -46,15 +46,6 @@ export function Experience() {
                         <span className="font-mono text-[10px] text-[#888]/40">{item.location}</span>
                       </div>
                     </div>
-
-                    <ul className="space-y-2.5">
-                      {item.bullets.map((b, j) => (
-                        <li key={j} className="flex gap-3 text-sm text-[#888] leading-relaxed">
-                          <span className="text-[#3b82f6]/50 shrink-0 mt-0.5 font-mono">›</span>
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </motion.div>
               </ScrollReveal>
