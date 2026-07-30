@@ -36,21 +36,13 @@ export function Achievements() {
           <div className="space-y-0 border-t border-[#26262A]">
             {experience.map((role) => (
               <div key={`${role.company}-${role.period}`} data-reveal className="py-8 border-b border-[#26262A]">
-                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
                   <span className="font-mono text-xs text-[#8A8A8F]/50 sm:w-36 shrink-0">{role.period}</span>
                   <div>
                     <span className="font-semibold text-[#EDEDEC] text-base">{role.title}</span>
                     <span className="text-[#CBBFA8] text-sm font-medium"> · {role.company}</span>
                   </div>
                 </div>
-                <ul className="space-y-1.5 sm:pl-40">
-                  {role.bullets.map((b, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-[#8A8A8F] leading-relaxed">
-                      <span className="text-[#26262A] mt-1 shrink-0">—</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
