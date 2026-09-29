@@ -2,8 +2,9 @@ import { useState, type FormEvent } from 'react';
 import { Button } from './Button';
 import styles from './ContactForm.module.css';
 
-// Web3Forms public access key (safe to ship client-side) — delivers to hrushibhatt@gmail.com.
-const WEB3FORMS_KEY = '9cfbb7d7-ee1f-4e48-a80c-b444bce6ee3a';
+// Web3Forms access key — delivers to hrushibhatt@gmail.com. Read from VITE_WEB3FORMS_KEY
+// (.env locally, the WEB3FORMS_KEY repository secret in CI) so it stays out of the source.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
 // Client-side rate limit: 3 submissions per hour per browser.
 const RATE_LIMIT = { max: 3, windowMs: 60 * 60 * 1000, storageKey: 'hrushi_contact_ts' };
@@ -37,6 +38,10 @@ export function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     if (data.get('botcheck')) return; // Honeypot filled in: silently drop.
+    if (!WEB3FORMS_KEY) {
+      setStatus({ kind: 'error' }); // Built without the key: point people to email instead.
+      return;
+    }
 
     const recent = recentSubmissions();
     if (recent.length >= RATE_LIMIT.max) {

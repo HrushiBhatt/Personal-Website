@@ -28,6 +28,9 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          # Contact form key; add it under Settings → Secrets and variables → Actions.
+          VITE_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -34,12 +34,6 @@ const ICONS = {
       <circle cx="12" cy="9.5" r="2.5" />
     </g>
   ),
-  graduationCap: (
-    <g {...STROKE}>
-      <path d="M2 9l10-5 10 5-10 5L2 9z" />
-      <path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6" />
-    </g>
-  ),
   copy: (
     <g {...STROKE}>
       <rect x="9" y="9" width="12" height="12" rx="2" />

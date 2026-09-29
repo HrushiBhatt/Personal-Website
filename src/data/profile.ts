@@ -3,7 +3,6 @@ import type { IconName } from '../components/Icon';
 export const profile = {
   name: 'Hrushi Bhatt',
   role: 'Computer Engineer',
-  degree: 'B.S. in Computer Engineering',
   email: 'hrushibhatt@gmail.com',
   github: 'https://github.com/HrushiBhatt',
   // Short profile (About). Kept deliberately brief — each line is one row of the spec sheet.
