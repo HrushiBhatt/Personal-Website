@@ -1,0 +1,248 @@
+/* ─── Profile: captioned figure + spec sheet ─── */
+.profile {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+}
+
+.figure {
+  padding: 14px;
+}
+
+.frame {
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+}
+
+/* Orange registration marks at each corner, like a figure in a technical drawing */
+.corners {
+  position: absolute;
+  inset: -14px;
+  pointer-events: none;
+  --mark: 26px;
+  background:
+    linear-gradient(var(--orange), var(--orange)) top left / var(--mark) 2px,
+    linear-gradient(var(--orange), var(--orange)) top left / 2px var(--mark),
+    linear-gradient(var(--orange), var(--orange)) top right / var(--mark) 2px,
+    linear-gradient(var(--orange), var(--orange)) top right / 2px var(--mark),
+    linear-gradient(var(--orange), var(--orange)) bottom left / var(--mark) 2px,
+    linear-gradient(var(--orange), var(--orange)) bottom left / 2px var(--mark),
+    linear-gradient(var(--orange), var(--orange)) bottom right / var(--mark) 2px,
+    linear-gradient(var(--orange), var(--orange)) bottom right / 2px var(--mark);
+  background-repeat: no-repeat;
+}
+
+.caption {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.caption span {
+  color: var(--orange);
+}
+
+.sheet {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--navy-800);
+  box-shadow: var(--shadow-card);
+}
+
+.sheetHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 40px 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.docLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.name {
+  margin-top: 12px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.role {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 138, 43, 0.4);
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.summary {
+  padding: 26px 40px;
+  border-bottom: 1px solid var(--line);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.specs {
+  padding: 8px 40px 16px;
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec:last-child {
+  border-bottom: 0;
+}
+
+.spec dt {
+  display: flex;
+  gap: 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.spec dt span {
+  color: var(--orange);
+}
+
+.spec dd {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.education {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.education strong {
+  display: block;
+  font-weight: 700;
+}
+
+.education span {
+  color: var(--muted);
+}
+
+.logo {
+  flex-shrink: 0;
+  width: 40px;
+  height: auto;
+}
+
+/* ─── Toolbox: one table, a row per area ─── */
+.toolbox {
+  margin-top: 120px;
+}
+
+.toolboxHead {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.toolboxTitle {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.toolboxTitle em {
+  font-style: normal;
+  color: var(--orange);
+}
+
+.toolboxSub {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.table {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--navy-800);
+  box-shadow: var(--shadow-card);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.rowHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rowHead h4 {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.rowIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 138, 43, 0.3);
+  border-radius: 12px;
+  color: var(--orange);
+}
+
+.count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--subtle);
+}

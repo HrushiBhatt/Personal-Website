@@ -1,0 +1,140 @@
+/*
+ * Timeline (first visit):
+ *   0.08s–1.0s  letters rise in, one after another; the orange dot lands last
+ *   0.15s–1.2s  progress line fills and the counter runs 0 → 100%
+ *   1.2s–1.65s  name and bar drift up and fade
+ *   1.3s–2.1s   the panel lifts off the page, trailing its orange edge
+ * The hero's own entrance waits for --intro-offset (global.css) so it plays as the page is revealed.
+ */
+.intro {
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-curtain: cubic-bezier(0.76, 0, 0.24, 1);
+
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  border-bottom: 2px solid var(--orange);
+  background: var(--navy-950);
+  animation: lift 0.8s var(--ease-curtain) 1.3s forwards;
+}
+
+:global(.intro-seen) .intro {
+  display: none;
+}
+
+.content {
+  width: 520px;
+  animation: fade-up 0.45s var(--ease-out) 1.2s forwards;
+}
+
+/* Each letter slides up from behind the line's bottom edge */
+.name {
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 6px;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  color: var(--text);
+}
+
+.name span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: rise 0.55s var(--ease-out) forwards;
+  animation-delay: calc(var(--i) * 30ms + 80ms);
+}
+
+.name .dot {
+  color: var(--orange);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: appear 0.4s var(--ease-out) 0.3s forwards;
+}
+
+/* A real 0 → 100 count in CSS: an animatable integer property printed through a counter */
+@property --pct {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.counter::after {
+  content: counter(pct) '%';
+  counter-reset: pct var(--pct);
+  font-variant-numeric: tabular-nums;
+  color: var(--orange);
+  animation: count 1.05s var(--ease-in-out) 0.15s forwards;
+}
+
+.bar {
+  height: 2px;
+  margin-top: 12px;
+  overflow: hidden;
+  background: var(--line-strong);
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fill 1.05s var(--ease-in-out) 0.15s forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes count {
+  to {
+    --pct: 100;
+  }
+}
+
+@keyframes fill {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes lift {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}

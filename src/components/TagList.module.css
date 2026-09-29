@@ -1,0 +1,42 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag,
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.tag {
+  border: 1px solid var(--line-strong);
+  background: var(--navy-900);
+  color: var(--text);
+  transition: border-color 0.25s var(--ease-out);
+}
+
+.tag:hover {
+  border-color: var(--orange);
+}
+
+.tag svg {
+  flex-shrink: 0;
+}
+
+.fallback {
+  color: var(--subtle);
+}
+
+.more {
+  border: 1px solid rgba(255, 138, 43, 0.5);
+  background: var(--navy-900);
+  color: var(--orange);
+}

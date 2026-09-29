@@ -1,3 +1,9 @@
+import type { Picture } from '../lib/picture';
+import nerdmarketCover from '../assets/images/work/nerdmarket/cover.png?responsive';
+import radarRobotCover from '../assets/images/work/radar-robot/cover.jpg?responsive';
+import riscvCover from '../assets/images/work/riscv-cpu/cover.png?responsive';
+import brewFocusCover from '../assets/images/work/brew-focus/cover.png?responsive';
+
 export interface ProjectMetric { label: string; value: string }
 export interface ProjectLink   { label: string; url: string }
 
@@ -14,13 +20,14 @@ export interface Project {
   highlights: string[];
   metrics?: ProjectMetric[];
   challenges?: string[];
-  links?: ProjectLink[];
   githubUrl?: string;
-  liveUrl?: string;
-  coverImage?: string;
-  coverObjectPosition?: string;
-  gallery?: string[];
-  featured?: boolean;
+  /** Extra links shown next to GitHub in the project details. */
+  links?: ProjectLink[];
+  cover: Picture;
+  /** CSS object-position for the cover crop. */
+  coverPosition?: string;
+  /** 'contain' shows the whole cover (screenshots, diagrams) instead of cropping it to fill. */
+  coverFit?: 'cover' | 'contain';
 }
 
 export const projects: Project[] = [
@@ -42,11 +49,10 @@ export const projects: Project[] = [
       'Built a notification system with immediate + scheduled STOMP push, including a daily cron detecting >1% price swings on cards in a user\'s binder.',
       'Set up a GitLab CI pipeline with a self-registered shell-executor runner that builds and tests on every push.',
     ],
-    coverImage: '/images/work/nerdmarket/cover.png',
-    coverObjectPosition: '50% 0%',
     githubUrl: 'https://github.com/HrushiBhatt',
     links: [{ label: 'Demo video', url: 'https://youtu.be/El1KD3GnCjg' }],
-    featured: true,
+    cover: nerdmarketCover,
+    coverFit: 'contain',
   },
   {
     slug: 'radar-robot',
@@ -62,10 +68,9 @@ export const projects: Project[] = [
       'Sensor fusion and ADC calibration convert IR voltages and ultrasonic echo times into accurate distances; tracks detections across adjacent angles to estimate object width.',
       'Streams angle/distance/width tuples over TCP to a threaded Python Tkinter/Matplotlib GUI rendering a live 180° polar radar map with keyboard control.',
     ],
-    coverImage: '/images/work/radar-robot/cover.jpg',
     githubUrl: 'https://github.com/HrushiBhatt',
-    links: [{ label: 'GitHub', url: 'https://github.com/HrushiBhatt' }],
-    featured: true,
+    cover: radarRobotCover,
+    coverPosition: '50% 45%',
   },
   {
     slug: 'riscv-cpu',
@@ -94,10 +99,9 @@ export const projects: Project[] = [
       'Eliminating forwarding path bugs that only surfaced on specific instruction sequences — required systematic ModelSim waveform analysis.',
       'Coordinating HDU stall insertion with FWD forwarding so that back-to-back load-use hazards stall exactly one cycle without corrupting pipeline state.',
     ],
-    coverImage: '/images/work/riscv-cpu/cover.png',
     githubUrl: 'https://github.com/HrushiBhatt',
-    links: [{ label: 'GitHub', url: 'https://github.com/HrushiBhatt' }],
-    featured: true,
+    cover: riscvCover,
+    coverFit: 'contain',
   },
   {
     slug: 'brew-focus',
@@ -114,13 +118,8 @@ export const projects: Project[] = [
       'Web Audio API generates soft chime sounds on session transitions using OscillatorNode, requiring zero external audio assets.',
       'Session streaks and preset configurations persist across page reloads via localStorage.',
     ],
-    coverImage: '/images/work/brew-focus/cover.png',
-    coverObjectPosition: '50% 0%',
     githubUrl: 'https://github.com/HrushiBhatt/Productivity-Manager',
-    featured: true,
+    cover: brewFocusCover,
+    coverFit: 'contain',
   },
 ];
-
-export function getProjectBySlug(slug: string) {
-  return projects.find((p) => p.slug === slug);
-}

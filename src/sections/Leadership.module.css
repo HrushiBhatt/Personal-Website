@@ -1,0 +1,170 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 36px 40px 40px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--navy-800);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out);
+}
+
+/* Solid orange accent bar on the top edge */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 56px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--orange);
+}
+
+.card:hover {
+  border-color: rgba(255, 138, 43, 0.45);
+  transform: translateY(-4px);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(255, 138, 43, 0.45);
+  border-radius: 16px;
+  background: var(--navy-900);
+  color: var(--orange);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 138, 43, 0.35);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.period {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.title {
+  margin-top: 12px;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.org {
+  margin-top: 10px;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.bullets {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.bullets li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+/* ─── Photo strip ─── */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.photo:hover img {
+  transform: scale(1.04);
+}
+
+.photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(6, 13, 26, 0.7), transparent 40%);
+  pointer-events: none;
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(6, 13, 26, 0.66);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.caption svg {
+  color: var(--orange);
+}

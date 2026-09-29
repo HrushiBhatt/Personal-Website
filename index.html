@@ -2,12 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Desktop-only layout: phones render the full 1280px page, scaled to fit. -->
+    <meta name="viewport" content="width=1280" />
+    <meta name="theme-color" content="#0a1426" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Hrushi Bhatt — Computer Engineer</title>
     <meta name="description" content="Computer Engineering student at Iowa State University. Embedded firmware, CPU design in VHDL, and shipped software product features at Motorola." />
     <meta name="author" content="Hrushi Bhatt" />
+    <link rel="canonical" href="https://hrushibhatt.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -21,12 +24,18 @@
     <meta name="twitter:title" content="Hrushi Bhatt — Computer Engineer" />
     <meta name="twitter:description" content="Embedded firmware, CPU design, and software product — from VHDL to shipped features at Motorola." />
 
-    <!-- Preconnect for fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Lets CSS hide scroll-reveal content only when JS is running (see src/hooks/useReveal.ts) -->
+    <script>
+      document.documentElement.classList.add('js');
+      // Play the intro (components/Intro.tsx) only on the first page load of a session.
+      try {
+        if (sessionStorage.getItem('intro-seen')) document.documentElement.classList.add('intro-seen');
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>This site needs JavaScript enabled. You can reach Hrushi at hrushibhatt@gmail.com.</noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,45 +1,35 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Intro } from './components/Intro';
+import { TechMarquee } from './components/TechMarquee';
+import { Hero } from './sections/Hero';
+import { About } from './sections/About';
+import { Experience } from './sections/Experience';
+import { Projects } from './sections/Projects';
+import { Leadership } from './sections/Leadership';
+import { Contact } from './sections/Contact';
+import { useReveal } from './hooks/useReveal';
 
-const Home          = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
-const ProjectDetail = lazy(() => import('./pages/ProjectDetail').then(m => ({ default: m.ProjectDetail })));
+export function App() {
+  useReveal();
 
-function Loader() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0A0A0A]">
-      <div className="w-4 h-4 rounded-full border border-[#2a2a2a] border-t-[#CBBFA8] animate-spin" />
-    </div>
-  );
-}
-
-function AnimatedRoutes() {
-  const location = useLocation();
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        <Suspense fallback={<Loader />}>
-          <Routes location={location}>
-            <Route path="/"           element={<Home />} />
-            <Route path="/work/:slug" element={<ProjectDetail />} />
-            <Route path="*"           element={<Home />} />
-          </Routes>
-        </Suspense>
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <AnimatedRoutes />
-    </BrowserRouter>
+    <>
+      <Intro />
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">
+        <Hero />
+        <TechMarquee />
+        <Projects />
+        <Experience />
+        <About />
+        <Leadership />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
